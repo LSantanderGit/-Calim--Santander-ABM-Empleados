@@ -1,0 +1,21 @@
+<p>-------</p>
+<p>app-lista-empleados works!</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Gender</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empleado of empleados">
+        <td>{{ empleado.id }}</td>
+        <td>{{ empleado.name }}</td>
+        <td>{{ empleado.jobTitle }}</td>
+        <td>{{ empleado.department }}</td>
+      </tr>
+    </tbody>
+</table>
+<p>-------</p>
