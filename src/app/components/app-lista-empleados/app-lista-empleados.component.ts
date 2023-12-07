@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import empleadosData from '../../../assets/data/empleados/empleados.json';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
@@ -19,6 +19,14 @@ interface Empleado{
   templateUrl: './app-lista-empleados.component.html',
   styleUrl: './app-lista-empleados.component.scss'
 })
-export class AppListaEmpleadosComponent {
+export class AppListaEmpleadosComponent implements OnInit {
   empleados: Empleado[] = empleadosData;
+  columnas: string[] = [];
+
+  ngOnInit() {
+    // Asigna las columnas dinámicamente basadas en el primer elemento del array JSON
+    if (this.empleados.length > 0) {
+      this.columnas = Object.keys(this.empleados[0]);
+    }
+  }
 }
