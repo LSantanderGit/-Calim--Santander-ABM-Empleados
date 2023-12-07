@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import empleadosData from '../../../assets/data/empleados/empleados.json';
+
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+
+import empleadosData from '../../../assets/data/empleados/empleados.json';
 
 interface Empleado{
   id: number;
@@ -14,7 +18,9 @@ interface Empleado{
   selector: 'app-app-lista-empleados',  
   standalone: true,
   imports: [CommonModule, 
-    MatTableModule],
+    MatTableModule,
+    MatIconModule,
+    MatButtonModule],
 
   templateUrl: './app-lista-empleados.component.html',
   styleUrl: './app-lista-empleados.component.scss'
@@ -24,9 +30,12 @@ export class AppListaEmpleadosComponent implements OnInit {
   columnas: string[] = [];
 
   ngOnInit() {
-    // Asigna las columnas dinámicamente basadas en el primer elemento del array JSON
     if (this.empleados.length > 0) {
       this.columnas = Object.keys(this.empleados[0]);
     }
+  }
+  
+  addEmployee() {
+    alert('¡Sos re capo!');
   }
 }
