@@ -1,21 +1,26 @@
-<p>-------</p>
-<p>app-lista-empleados works!</p>
-<table class="table table-striped">
-    <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Gender</th>
-        </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let empleado of empleados">
-        <td>{{ empleado.id }}</td>
-        <td>{{ empleado.name }}</td>
-        <td>{{ empleado.jobTitle }}</td>
-        <td>{{ empleado.department }}</td>
-      </tr>
-    </tbody>
-</table>
-<p>-------</p>
+<div class="margin-list">
+    <table mat-table [dataSource]="empleados" class="mat-elevation-z8">
+        <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let empleado">{{ empleado.id }}</td>
+        </ng-container>
+    
+        <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let empleado">{{ empleado.name }}</td>
+        </ng-container>
+    
+        <ng-container matColumnDef="jobTitle">
+        <th mat-header-cell *matHeaderCellDef>Job Title</th>
+        <td mat-cell *matCellDef="let empleado">{{ empleado.jobTitle }}</td>
+        </ng-container>
+    
+        <ng-container matColumnDef="department">
+        <th mat-header-cell *matHeaderCellDef>Department</th>
+        <td mat-cell *matCellDef="let empleado">{{ empleado.department }}</td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="['id', 'name', 'jobTitle', 'department']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['id', 'name', 'jobTitle', 'department']"></tr>
+    </table>
+</div>
