@@ -1,8 +1,25 @@
+// employee.service.ts
 import { Injectable } from '@angular/core';
-@Injectable({
-  providedIn: 'root'
-})
-export class EmpleadosService {
+import empleadosData from '../../../assets/data/empleados/empleados.json';
 
-  constructor() { }
+interface Empleado {
+  id: number;
+  name: string;
+  jobTitle: string;
+  department: string;
+}
+
+@Injectable({
+  providedIn: 'root',
+})
+export class EmpleadoService {
+  private employees: Empleado[] = empleadosData;
+
+  getEmployees(): Empleado[] {
+    return this.employees;
+  }
+
+  addEmployee(newEmployee: Empleado): void {
+    this.employees.push(newEmployee);
+  }
 }

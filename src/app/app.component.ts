@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { AppListaEmpleadosComponent } from './components/app-lista-empleados/app-lista-empleados.component';
 import { AppHeaderEmpleadosComponent } from './components/app-header-empleados/app-header-empleados.component';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
