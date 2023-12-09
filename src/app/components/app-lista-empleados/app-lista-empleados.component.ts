@@ -20,17 +20,15 @@ import { EmpleadoService } from '../../services/empleados/empleados.service';
 })
 
 export class AppListaEmpleadosComponent implements OnInit {
-  empleados: any[] = [];
-  columnas: string[] = [];
+  dataSource: MatTableDataSource<any>;
+  displayedColumns: string[] = ['id', 'nombre', 'puesto', 'departamento'];
 
-  constructor(private EmpleadoService: EmpleadoService) {}
+  constructor(private empleadoService: EmpleadoService) {
+    this.dataSource = new MatTableDataSource<any>([]);
+  }
 
   ngOnInit() {
-    this.empleados = this.EmpleadoService.getEmployees();
-
-    if (this.empleados.length > 0) {
-      this.columnas = Object.keys(this.empleados[0]);
-    }
+    this.dataSource.data = this.empleadoService.getEmployees();
   }
   
   addEmployee() {
