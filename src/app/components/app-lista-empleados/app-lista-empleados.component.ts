@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
@@ -23,7 +24,7 @@ export class AppListaEmpleadosComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
   displayedColumns: string[] = ['id', 'nombre', 'puesto', 'departamento'];
 
-  constructor(private empleadoService: EmpleadoService) {
+  constructor(private empleadoService: EmpleadoService, private router: Router) {
     this.dataSource = new MatTableDataSource<any>([]);
   }
 
@@ -32,6 +33,7 @@ export class AppListaEmpleadosComponent implements OnInit {
   }
   
   addEmployee() {
-    alert('¡Sos re capo!');
+    //alert('¡Sos re capo!');
+    this.router.navigate(['/form-empleados']);
   }
 }
