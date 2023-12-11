@@ -1,48 +1,30 @@
 // employee.service.ts
 import { Injectable } from '@angular/core';
-import empleadosData from '../../../assets/data/empleados/empleados.json';
-
-interface Empleado {
-  id: number;
-  name: string;
-  jobTitle: string;
-  department: string;
-}
+import { EmpleadosInterface } from '../../interfaces/empleados-interface';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EmpleadoService {
-  private employees: Empleado[] = empleadosData;
+  private empleadosSubject: BehaviorSubject<EmpleadosInterface[]> = new BehaviorSubject<EmpleadosInterface[]>([]);
+  public empleados$: Observable<EmpleadosInterface[]> = this.empleadosSubject.asObservable();
+  private apiUrl = 'http://localhost:3000/empleados';
 
-  getEmployees(): Empleado[] {
-    return this.employees;
+  constructor(private http: HttpClient) {}
+
+  cargarEmpleados(): void {
+    this.http.get<EmpleadosInterface[]>(this.apiUrl).subscribe((data) => {
+      this.empleadosSubject.next(data);
+    });
   }
 
-  addEmployee(newEmployee: Empleado): void {
-    const newId = this.generateNewId();
-    newEmployee.id = newId;
-    this.employees.push(newEmployee);
-    this.updateJsonFile();
+  getEmpleados(): EmpleadosInterface[] {
+    return this.empleadosSubject.value;
   }
 
-  private generateNewId(): number {
-    const maxId = this.employees.reduce((max, emp) => (emp.id > max ? emp.id : max), 0);
-    return maxId + 1;
-  }
-
-  private updateJsonFile(): void {
-    const jsonString = JSON.stringify(this.employees, null, 2);
-    const filePath = '../../../assets/data/empleados/empleados.json';
-    fetch(filePath, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: jsonString,
-    })
-      .then((response) => response.json())
-      .then((data) => console.log('JSON file updated:', data))
-      .catch((error) => console.error('Error updating JSON file:', error));
+  agregarEmpleado(nuevoEmpleado: EmpleadosInterface): Observable<EmpleadosInterface> {
+    return this.http.post<EmpleadosInterface>(this.apiUrl, nuevoEmpleado);
   }
 }

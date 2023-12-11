@@ -29,11 +29,17 @@ export class AppListaEmpleadosComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataSource.data = this.empleadoService.getEmployees();
+    this.empleadoService.empleados$.subscribe((empleados) => {
+      this.dataSource.data = empleados;
+    });
+    this.empleadoService.cargarEmpleados();
+  }
+
+  cargarEmpleados() {
+    this.dataSource.data = this.empleadoService.getEmpleados();
   }
   
   addEmployee() {
-    //alert('¡Sos re capo!');
     this.router.navigate(['/form-empleados']);
   }
 }

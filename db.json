@@ -1,0 +1,82 @@
+{
+  "empleados": [
+    {
+      "id": 1,
+      "name": "Juan Pérez",
+      "jobTitle": "Desarrollador de Software",
+      "department": "Tecnología"
+    },
+    {
+      "id": 2,
+      "name": "María Rodríguez",
+      "jobTitle": "Analista de Datos",
+      "department": "Análisis"
+    },
+    {
+      "id": 3,
+      "name": "Carlos López",
+      "jobTitle": "Diseñador Gráfico",
+      "department": "Diseño"
+    },
+    {
+      "id": 4,
+      "name": "Laura García",
+      "jobTitle": "Especialista en Recursos Humanos",
+      "department": "Recursos Humanos"
+    },
+    {
+      "id": 5,
+      "name": "Roberto Martínez",
+      "jobTitle": "Gerente de Proyectos",
+      "department": "Gestión de Proyectos"
+    },
+    {
+      "id": 6,
+      "name": "Lucas M. Santander",
+      "jobTitle": "CEO de Calim",
+      "department": "Mi casa"
+    },
+    {
+      "name": "tetas",
+      "jobTitle": "sis",
+      "department": "hola",
+      "id": 7
+    },
+    {
+      "name": "el cara de teta",
+      "jobTitle": "sisisis",
+      "department": "la casa del orco",
+      "id": 8
+    },
+    {
+      "name": "yoshi",
+      "jobTitle": "mascota",
+      "department": "la casa del sebas",
+      "id": 9
+    },
+    {
+      "name": "el cara de pito",
+      "jobTitle": "asi es",
+      "department": "re loquita",
+      "id": 10
+    },
+    {
+      "name": "xd",
+      "jobTitle": "xd",
+      "department": "xd",
+      "id": 11
+    },
+    {
+      "name": "tetotas",
+      "jobTitle": "sisisis",
+      "department": "ponele",
+      "id": 12
+    },
+    {
+      "name": "vamooooooo",
+      "jobTitle": "que capoo soy",
+      "department": "sisiisi mi locoo",
+      "id": 13
+    }
+  ]
+}

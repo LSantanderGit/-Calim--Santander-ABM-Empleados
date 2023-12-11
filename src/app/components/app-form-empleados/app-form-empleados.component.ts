@@ -26,13 +26,16 @@ export class AppFormEmpleadosComponent {
     return this.email.hasError('email') ? 'Email no valido' : '';
   }
 
-  addEmployee() {
+  addEmployee(): void {
     if (!this.isValidForm()) {
       return;
     }
-    this.empleadoService.addEmployee(this.newEmployee);
-    this.newEmployee = {};
-    this.router.navigate(['/empleados']);
+  
+    this.empleadoService.agregarEmpleado(this.newEmployee).subscribe(() => {
+      this.newEmployee = {};
+      // No es necesario cargar empleados aquí, ya que el servicio lo hará automáticamente
+      this.router.navigate(['/empleados']);
+    });
   }
 
   isValidForm(): boolean {
