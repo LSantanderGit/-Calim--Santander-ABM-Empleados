@@ -39,7 +39,7 @@ export class AppListaEmpleadosComponent implements OnInit {
     this.dataSource.data = this.empleadoService.getEmpleados();
   }
   
-  addEmployee() {
+  agregarEmpleado() {
     this.router.navigate(['/form-empleados']);
   }
 }

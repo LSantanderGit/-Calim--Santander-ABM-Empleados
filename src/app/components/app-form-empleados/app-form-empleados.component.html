@@ -1,27 +1,18 @@
 <div class="example-container">
-    <!-- <mat-form-field>
-      <mat-label>Ingresar email</mat-label>
-      <input matInput placeholder="pat@ejemplo.com" [formControl]="email" required>
-      @if (email.invalid) {
-        <mat-error>{{getErrorMessage()}}</mat-error>
-      } -->
-  <h2>Add Employee</h2>
-  <form (ngSubmit)="addEmployee()" #employeeForm="ngForm">
+  <h2>Agregar empleado</h2>
+  <form (ngSubmit)="agregarEmpleadoForm()" #employeeForm="ngForm">
     <mat-form-field>
       <input matInput placeholder="Name" id="name" name="name" [(ngModel)]="newEmployee.name" required>
-      <mat-label>Name</mat-label>
+      <mat-label>Nombre</mat-label>
     </mat-form-field>
     <mat-form-field>
       <input matInput placeholder="Job Title" id="jobTitle" name="jobTitle" [(ngModel)]="newEmployee.jobTitle" required>
-      <mat-label>Job Title</mat-label>
+      <mat-label>Trabajo</mat-label>
     </mat-form-field>
     <mat-form-field>
       <input matInput placeholder="Department" id="department" name="department" [(ngModel)]="newEmployee.department" required>
-      <mat-label>Department</mat-label>
+      <mat-label>Departamento</mat-label>
     </mat-form-field>
-
-    <button type="submit" mat-raised-button color="primary">Add Employee</button>
+    <button type="submit" mat-raised-button color="primary">+Agregar</button>
   </form>
-
-    <!-- </mat-form-field> -->
 </div>  
